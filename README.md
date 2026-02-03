@@ -31,7 +31,6 @@
 
 ---
 
-## 🏗️ System Architecture
 
 ## 🏗️ System Architecture
 
@@ -91,24 +90,3 @@ flowchart TD
     style KCARDS fill:#00d2ff,stroke:#0086a3,color:#000
     style M_DATA fill:#00d2ff,stroke:#0086a3,color:#000
     style T_CFG fill:#00d2ff,stroke:#0086a3,color:#000
-
-  
-📂 Knowledge Base Coverage
-The bot is pre-loaded with comprehensive hotel data cards:
-
-📅 Timings: Check-in/out, Gym hours, and Pool access.
-
-🍴 Dining: Full Breakfast and 24/7 Room Service menus.
-
-🌐 Technical: High-speed Wi-Fi credentials and connectivity guides.
-
-🚗 Logistics: Airport transfers and luggage storage coordination.
-
-🏙️ Local Guide: Curated recommendations for city sightseeing and markets.
-
-
-Metric,Industry Standard (LLM),Magical Palace
-Response Time,2000ms+,< 10ms
-Operational Cost,High ($/Token),**$0.00**
-Hallucination Rate,~5-15%,0%
-Dependency Weight,500MB+,< 10MB
