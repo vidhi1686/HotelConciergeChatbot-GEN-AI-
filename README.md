@@ -91,5 +91,5 @@ flowchart TD
     style M_DATA fill:#00d2ff,stroke:#0086a3,color:#000
     style T_CFG fill:#00d2ff,stroke:#0086a3,color:#000
 
-    <img width="1198" height="742" alt="image" src="https://github.com/user-attachments/assets/88fca24a-197c-4545-a8af-6554c75577a6" />
+
 
