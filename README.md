@@ -1,80 +1,27 @@
-# HotelConciergeChatbot-GEN-AI-
-
-# Add this at the top of your HTML_PAGE string in app.py
-# I've added a 'View Logic' button and a Mermaid.js modal.
-
-HTML_PAGE = r"""
-<!doctype html>
-<html>
-<head>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-  <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
-  <style>
-    /* New Styles for Flowcharts */
-    .modal { display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); backdrop-filter:blur(5px); overflow:auto; }
-    .modal-content { background:var(--bg1); margin:5% auto; padding:20px; border:1px solid var(--border); width:90%; max-width:900px; border-radius:22px; }
-    .close { color:var(--text); float:right; font-size:28px; cursor:pointer; }
-    .mermaid { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="top">
-       <button onclick="document.getElementById('flowModal').style.display='block'" class="pill" style="cursor:pointer">view Architecture 🧠</button>
-    </div>
-
-    <div id="flowModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="document.getElementById('flowModal').style.display='none'">&times;</span>
-        <h2 style="margin-top:0">System Architecture</h2>
-        <div class="mermaid">
-            flowchart TD
-                A[Guest] --> B[FastAPI Backend]
-                B --> C{Cached?}
-                C -- Yes --> D[Instant Return]
-                C -- No --> E[Intent Scraper]
-                E --> F[Knowledge Cards]
-                F --> G[JSON/SSE Response]
-        </div>
-      </div>
-    </div>
-  </div>
-  </body>
-</html>
-"""
-
-
-🏨 Magical Palace Concierge
-A High-Performance, Lightweight Hospitality Chatbot built with FastAPI.
-
-Magical Palace Concierge is a production-ready, single-file hospitality assistant. It leverages an intent-based retrieval system to provide guests with instant information regarding hotel services, menus, and local attractions without the latency or cost of external LLM APIs.
-
-🚀 Key Features
-⚡ Sub-10ms Latency: Uses an in-memory TTL cache and keyword token overlap scoring for near-instant responses.
-
-💎 Modern UI: A sleek, "glassmorphism" interface built with Vanilla JS and CSS—no heavy frontend frameworks required.
-
-📡 Hybrid Communication: Supports both standard JSON POST requests and Server-Sent Events (SSE) for streaming responses.
-
-📦 Zero-Dependency AI: Pre-configured "Knowledge Cards" allow for intelligent matching without expensive GPU or API requirements.
-
-🛠️ Deploy-Ready: Single app.py structure makes it ideal for Docker, Heroku, or AWS Lambda deployments.
-
-🏗️ System Architecture
-High-Level Interaction
-The system follows a reactive pattern where user queries are tokenized and matched against a local knowledge base.
-
-
-flowchart LR
-    User((Guest)) -->|HTTPS| API[FastAPI Gateway]
-    API --> Cache{TTL Cache}
-    Cache -->|Miss| Engine[Intent Engine]
-    Engine --> Cards[(Knowledge Cards)]
+This updated README is designed to be high-impact, professional, and visually structured. It integrates your Mermaid flowcharts directly and uses clean Markdown formatting to highlight the technical sophistication of your "single-file" architecture.🏨 Magical Palace ConciergeThe Ultra-Lightweight, Production-Ready Hospitality ChatbotMagical Palace Concierge is an elegant, single-file AI assistant built for the modern hospitality industry. By utilizing a high-speed intent-matching engine and a "glassmorphism" UI, it provides guests with instant answers regarding menus, Wi-Fi, and hotel services—all without the overhead of external LLM APIs.🚀 Performance Highlights⚡ Sub-10ms Latency: Leveraging in-memory TTL caching for instantaneous repeat queries.💎 Modern Glass UI: A stunning, framework-free frontend built with Vanilla JS and CSS.📡 Hybrid Streaming: Seamlessly switches between standard JSON and Server-Sent Events (SSE).🧠 Zero-Dependency AI: Token-overlap scoring allows for intelligent matching with zero GPU cost.📦 All-in-One Portability: A single app.py makes deployment to Docker or AWS Lambda a breeze.🏗️ System ArchitectureThe Concierge operates on a reactive retrieval model. Instead of relying on heavy neural networks, it uses a high-performance matching engine to bridge the gap between guest queries and hotel knowledge.High-Level System FlowCode snippetgraph TD
+    A[Guest opens website] --> B[HTML + CSS UI loads]
+    B --> C[User types question]
+    C --> D[POST /chat or /chat/stream]
+    D --> E[FastAPI Backend]
+    E --> F{Cached?}
+    F -- Yes --> I[Send Response]
+    F -- No --> G[Intent Detection & Knowledge Retrieval]
+    G --> H[Cache Answer]
+    H --> I
+    I --> J[Rendered in Chat Bubble]
+Backend Logic (Answer Generation)Code snippetflowchart LR 
+    User((Guest)) -->|HTTPS| API[FastAPI Gateway] 
+    API --> Cache{TTL Cache} 
+    Cache -->|Miss| Engine[Intent Engine] 
+    Engine --> Cards[(Knowledge Cards)] 
     Cards --> UI[Glass UI]
+🛠️ Tech Stack & SpecificationsLayerTechnologyPurposeBackendFastAPIHigh-performance ASGI web frameworkFrontendVanilla JS / CSS3Zero-dependency, "Glassmorphism" UIStreamingSSE-StarletteReal-time token streaming (SSE)CachingIn-memory TTLDrastically reduces processing time for frequent FAQsMatchingRegex TokenizationKeyword-based overlap scoring for sub-ms matching📥 Getting Started1. InstallationBash# Clone the repository
+git clone https://github.com/your-username/MagicalPalaceConcierge.git
+cd MagicalPalaceConcierge
 
-    Layer,Technology
-Backend,"Python 3.9+, FastAPI"
-Frontend,"HTML5, CSS3 (Flex/Grid), Vanilla JavaScript"
-Streaming,SSE (Server-Sent Events) via sse-starlette
-Caching,In-memory Dictionary with TTL (Time-To-Live)
-
+# Setup environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install fastapi uvicorn sse-starlette
+2. ExecutionBashpython -m uvicorn app:app --reload --port 8000
+Visit http://localhost:8000 to interact with your digital concierge.🧖 Knowledge Base CoverageThe chatbot is pre-configured to handle:🕑 Timings: Check-in (2:00 PM) / Check-out (11:00 AM)🍳 Dining: Full Breakfast and Room Service menus.📶 Connectivity: Secure Wi-Fi access instructions.🚕 Logistics: Airport transfers and luggage storage.🗺️ Local Guide: Recommendations for Old Town, Riverfront, and Markets.
