@@ -33,9 +33,9 @@
 
 ## 🏗️ System Architecture
 
-The concierge operates on a reactive retrieval model. Every query is tokenized and matched against a local knowledge base, bypassing the need for heavy external neural networks.
+## 🏗️ System Architecture
 
-
+The following diagram illustrates the high-performance flow from guest interaction through our intent-matching engines to the local knowledge base.
 
 ```mermaid
 flowchart TD
@@ -82,19 +82,17 @@ flowchart TD
     ATTR --> STR
     STR --> UI
 
-    %% Styling
+    %% Styling for GitHub Dark/Light Mode
     style G fill:#22c55e,stroke:#fff,stroke-width:2px,color:#fff
     style API fill:#06b6d4,stroke:#0891b2,stroke-width:2px,color:#fff
     style ROUTE fill:#f59e0b,stroke:#d97706,color:#fff
     style Engines fill:#1a1a1a,stroke:#444,color:#fff
     style Data_Storage fill:#1a1a1a,stroke:#444,color:#fff
+    style KCARDS fill:#00d2ff,stroke:#0086a3,color:#000
+    style M_DATA fill:#00d2ff,stroke:#0086a3,color:#000
+    style T_CFG fill:#00d2ff,stroke:#0086a3,color:#000
 
-    Layer,Technology,Status
-Backend,FastAPI + Python 3.9+,🟢 Stable
-Frontend,HTML5 + CSS3 (Glassmorphism),🟢 Production
-Streaming,SSE (Server-Sent Events),🔵 Active
-Caching,In-Memory Dictionary with TTL,🔵 Optimized
-
+  
 📂 Knowledge Base Coverage
 The bot is pre-loaded with comprehensive hotel data cards:
 
